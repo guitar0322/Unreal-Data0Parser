@@ -13,5 +13,7 @@ UCLASS()
 class TXTDATA_PARSER_API UTextDataParser : public UGameInstance
 {
 	GENERATED_BODY()
-	
+public:
+	void SaveTextData(const FString& FilePath, const TArray<FString>& Data);
+	FString CombineData(const TArray<FString>& Data);
 };

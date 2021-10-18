@@ -18,7 +18,6 @@ void UDataParserClient::BeginPlay()
 {
 	Super::BeginPlay();
 	// ...
-	
 }
 
 
