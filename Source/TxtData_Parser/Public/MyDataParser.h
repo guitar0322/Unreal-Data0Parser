@@ -3,17 +3,18 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Engine/GameInstance.h"
-#include "TextDataParser.generated.h"
 
 /**
  * 
  */
-UCLASS()
-class TXTDATA_PARSER_API UTextDataParser : public UGameInstance
+class TXTDATA_PARSER_API MyDataParser
 {
-	GENERATED_BODY()
 public:
+	MyDataParser();
+	~MyDataParser();
+
 	void SaveTextData(const FString& FilePath, const TArray<FString>& Data);
+	void LoadTextData(const FString& FilePath, TArray<FString>& Result);
 	FString CombineData(const TArray<FString>& Data);
+	void SeparateString(const FString& String, TArray<FString>& Result);
 };
