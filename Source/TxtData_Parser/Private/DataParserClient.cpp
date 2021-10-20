@@ -17,22 +17,23 @@ UDataParserClient::UDataParserClient()
 void UDataParserClient::BeginPlay()
 {
 	Super::BeginPlay();
-	MyDataParser dataParser;
+	MyDataParser DataParser;
 	FString TestFilePath;
-	TArray<FString> TestData;
-	TArray<FString> LoadedData;
-	TestData.Add(TEXT("1"));
-	TestData.Add(TEXT("4"));
-	TestData.Add(TEXT("5"));
-
+	TArray<FString> TestCol;
+	TArray<FString> TestRow;
+	TArray<TArray<FString>> TestData;
 	TestFilePath = FPaths::ProjectDir();
 	TestFilePath += "/test_data.txt";
-	dataParser.SaveTextData(TestFilePath, TestData);
-	dataParser.LoadTextData(TestFilePath, LoadedData);
-	for (FString Data : LoadedData)
-	{
-		UE_LOG(LogTemp, Log, TEXT("%s"), *Data);
-	}
+
+	TestCol.Add(TEXT("ATK"));
+	TestCol.Add(TEXT("DFN"));
+
+	TestRow.Add(TEXT("archor"));
+	TestRow.Add(TEXT("sword"));
+	
+	TestData.Add(TArray<FString>({ "1", "2" }));
+
+	DataParser.SaveTextData(TestFilePath, TestCol, TestRow, TestData);
 }
 
 //// Called every frame
