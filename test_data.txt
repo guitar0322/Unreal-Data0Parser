@@ -1,3 +1,5 @@
 	ATK	DFN
-archor	1	2
-sword	NULL	NULL
+archor	11	2
+sword	6	8
+babarian	10	10
+monk	12	1

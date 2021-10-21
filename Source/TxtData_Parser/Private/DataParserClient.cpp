@@ -22,6 +22,7 @@ void UDataParserClient::BeginPlay()
 	TArray<FString> TestCol;
 	TArray<FString> TestRow;
 	TArray<TArray<FString>> TestData;
+	TArray<TArray<FString>> TestLoadedData;
 	TestFilePath = FPaths::ProjectDir();
 	TestFilePath += "/test_data.txt";
 
@@ -33,7 +34,15 @@ void UDataParserClient::BeginPlay()
 	
 	TestData.Add(TArray<FString>({ "1", "2" }));
 
-	DataParser.SaveTextData(TestFilePath, TestCol, TestRow, TestData);
+	//DataParser.SaveTextData(TestFilePath, TestCol, TestRow, TestData);
+	DataParser.LoadTextData(TestFilePath, TestLoadedData);
+	for (int i = 0; i < TestLoadedData.Num(); ++i)
+	{
+		for (FString data : TestLoadedData[i])
+		{
+			UE_LOG(LogTemp, Log, TEXT("%s"), *data);
+		}
+	}
 }
 
 //// Called every frame
